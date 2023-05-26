@@ -55,7 +55,7 @@
  *  //TODO: NEED TO SCREENCASTIFY TUTORIAL
  * 
  *  need to ignore node module + ds store !BEFORE install dependencies
- *  gonna require file sys
+ *  // //gonna require file sys
  *  gonna require inquirer
  *  need to init npm -> package created
  *  need to install inq -> package lock
@@ -67,4 +67,11 @@
 */
 // #endregion
 
+
+//expecting user to cmd line <- node index.js
+
+//#region Requirements
+const fs = require('fs');
+const inq = require('inquirer');
+//#endregion
 
