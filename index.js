@@ -52,7 +52,7 @@
 
 /*      OTHER NOTES
  *_______________________________________________________________________________
- *  //TODO: NEED TO SCREENCASTIFY TUTORIAL
+ *  //TODO: NEED TO SCREENCASTIFY/YOUTUBE TUTORIAL
  * 
  *  need to ignore node module + ds store !BEFORE install dependencies
  *  // //gonna require file sys
@@ -63,7 +63,11 @@
  *  use prompt to recieve input
  *  Output to a readme.md
  * 
- * 
+ * Gen flow:
+ *  user input "node index.js"
+ *  questions get on the screen in sequence
+ *  repsponses are retreived
+ *  then rearranged into a README.md
 */
 // #endregion
 
