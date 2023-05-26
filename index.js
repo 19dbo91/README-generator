@@ -72,14 +72,17 @@
 // #endregion
 
 
+
+//! start
+// TODO: Include packages needed for this application
 //#region Requirements
 const fs = require('fs');
 const inq = require('inquirer');
+const md = require('./');
 //#endregion
 
 
-//#region Starter Code
-// TODO: Include packages needed for this application
+
 
 // TODO: Create an array of questions for user input
 const questions = [];
@@ -88,7 +91,9 @@ const questions = [];
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    console.log(`${fs}, ${inq}, ${md}`)
+}
 
 // Function call to initialize app
 init();
