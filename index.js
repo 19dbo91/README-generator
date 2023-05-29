@@ -110,6 +110,8 @@ function createQuestions(){
 
 //#region Output // // TODO:(1)
 // // TODO: Create a function to write README file
+const outputFilePath="./newREADME.md"
+
 function writeToFile(fileName, data) {
     fs.writeFile(fileName,data,(err) =>
         err
@@ -134,8 +136,11 @@ function init() {
 function sendPrompts(questionArray){
     inquirer
         .prompt(questionArray)
-        .then((response) =>
-            console.log(markdown(response))
+        .then((response) => {
+            let myNewVar = markdown(response);
+            console.log(myNewVar);
+            writeToFile(outputFilePath,myNewVar);
+            }
         );
 }
 //#endregion
