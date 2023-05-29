@@ -40,7 +40,8 @@ function generateMarkdown(dataObj) {
 // so I decided chaining was a more legible format with minimal performance impact
 // Also, not expecting to have a whole novel to be entered into cmd-line..
 
-
+//need a handler for empty strings
+//maybe 
 
 function renderTitle(title){
   return `# ${title}\n\n`;
