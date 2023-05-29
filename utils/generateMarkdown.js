@@ -47,11 +47,9 @@ function renderTitle(title){
   return `# ${title}\n\n`;
 } // you can call function from with in back tick strings
 function renderSectionHeader(header){
-  console.log(`writing ## ${header}\n\n`);
   return `## ${header}\n\n`;
 }
 function renderSection(content){
-  console.log(`writing ## ${content}\n\n`);
   return `${content}\n\n`;
 }
 

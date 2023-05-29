@@ -93,14 +93,16 @@ class Question {
 }
 // // TODO: Create an array of questions for user input
 const questions = [];
-const licenseOptions = ["Option 1","Option 2", "Option 3"];
+const licenseOptions =
+["GNU AGPLv3","GNU GPLv3", "GNU LGPLv3", "Mozilla Public License",
+"Apache License 2.0", "MIT License","Boost Software License 1.0","The Unlicense"];
 
 function createQuestions(){
     questions.push(new Question("title","input","What is the name of your project?"));
     questions.push(new Question("description","input","How does your project works? Your motivation behind it? The problem its intended to solve?"));
     questions.push(new Question("installation","input","How do I install your program?"));
     questions.push(new Question("usage","input","How do I use your program?"));
-    questions.push(new Question("license","list","What license will your project be under? Choose one:", licenseOptions));
+    questions.push(new Question("license","list","What license will your project be under? Refer to <https://choosealicense.com/>. Choose one:", licenseOptions));
     questions.push(new Question("contribution","input","How do I contribute to your repository?"));
     questions.push(new Question("testing","input","How do I test your program?"));
     //console.log(`Number of questions pushed: ${questions.length}`)

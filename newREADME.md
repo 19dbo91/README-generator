@@ -1,26 +1,26 @@
-# Fixed my issue
+# Testing License options
 
 ## Description
 
-As t turns out 
+Added real license options and should print properly
 
 ## Installation
 
-i forgot to render section before concatenation
+I need to figure how to handle when there are no licenses specified
 
 ## Usage
 
-I fixed by putting that function call in
+According to No License, its under no permission bbasically
 
 ## License
 
-Option 1
+The Unlicense
 
 ## How to Contribute
 
-there is probably a better way to handle each object
+Note Unlicense is not the same as NO LICENSE.
 
 ## Tests
 
-however i am having a hard time trying to refer to that variable as its own name.. more time needed.. will just get MVP going... will try ro get better lines of code in afterwards
+done.
 
