@@ -74,28 +74,72 @@
 
 
 //! start
-// TODO: Include packages needed for this application
-//#region Requirements
+
+//#region Requirements // // TODO:(1)
+// // TODO: Include packages needed for this application
 const fs = require('fs');
-const inq = require('inquirer');
-const md = require('./utils/generateMarkdown');
+const inquirer = require('inquirer');
+const markdown = require('./utils/generateMarkdown');
+//#endregion
+
+//#region Questions // // TODO:(1)
+class Question {
+    constructor(nameString, typeString, msgString, choicesArr) {
+        this.name = nameString;
+        this.type = typeString;
+        this.message = msgString;
+        this.choices = choicesArr;
+    }
+}
+// // TODO: Create an array of questions for user input
+const questions = [];
+const licenseOptions = ["Option 1","Option 2", "Option 3"];
+
+function createQuestions(){
+    questions.push(new Question("title","input","What is the name of your project?"));
+    questions.push(new Question("description","input","How does your project works? Your motivation behind it? The problem its intended to solve?"));
+    questions.push(new Question("installation","input","How do I install your program?"));
+    questions.push(new Question("usage","input","How do I use your program?"));
+    questions.push(new Question("license","list","What license will your project be under? Choose one:", licenseOptions));
+    questions.push(new Question("contribution","input","How do I contribute to your repository?"));
+    questions.push(new Question("testing","input","How do I test your program?"));
+    //console.log(`Number of questions pushed: ${questions.length}`)
+} // Wanted to keep 
+
+//#endregion
+
+//#region Output // // TODO:(1)
+// // TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName,data,(err) =>
+        err
+            ? console.error(err)
+            : console.log(`Document ${fileName} saved.`)
+    );
+}
 //#endregion
 
 
-// TODO: Create an array of questions for user input
-const questions = [];
-
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
+//#region Main //TODO:(1)
 // TODO: Create a function to initialize app
 function init() {
-    console.log(`${fs}, ${inq}, ${md}`)
+    createQuestions();
+    sendPrompts(questions);
+    //console.log("Responses...recieved");//needs to wait...
+    //console.log("Writing document...");//needs to wait...
+    //console.log(`Testing write2file...`);
+    //writeToFile('./test.md','Testing write functionality')
 }
+
+function sendPrompts(questionArray){
+    inquirer
+        .prompt(questionArray)
+        .then((response) =>
+            console.log(markdown(response))
+        );
+}
+//#endregion
 
 // Function call to initialize app
 init();
 
-//#endregion
