@@ -1,9 +1,11 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(licenseChosen) {
+  if (licenseChosen){
   licenseChosen = encodeURI(licenseChosen)
-  return `![${licenseChosen}](https://img.shields.io/badge/license-${licenseChosen}-green)\n\n`
-}
+  return `![${licenseChosen}](https://img.shields.io/badge/license-${licenseChosen}-green)\n\n`}
+  else{ return '';}
+}// Keeping conditional for error case; generally should work with list options...
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -15,7 +17,7 @@ function renderLicenseSection(licenseChosen) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(dataObj) {
-  const { title, description, installation, usage, license, contribution, testing } = dataObj;
+  const { title, description, installation, usage, license, contribution, testing, username, email } = dataObj;
   
   let mainString = "";
 
@@ -35,6 +37,7 @@ function generateMarkdown(dataObj) {
     .concat(renderSection(contribution))
     .concat(renderSectionHeader("Tests"))
     .concat(renderSection(testing))
+    .concat(renderSectionHeader("Questions"))
   ;
   
   return mainString;
@@ -56,7 +59,9 @@ function renderSection(content){
   return `${content}\n\n`;
 }
 
-
+// TODO: add string check for falsy
+// TODO: add username to 'Questsions' portion
+// TODO: add email to 'Questsions' portion
 
 function renderToC(){
   let table = renderSectionHeader("Table of Contents");

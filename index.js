@@ -13,28 +13,27 @@
  *_______________________________________________________________________________
  * .: a CMD-Line app that accepts user input
  * 
- * @ prompted for info about my app repo
- *  >   a HQ, prof README.md is generated w/:
- *    > myProject.Title
- *    > sxns {
- *          Descriptions
+ * ////@ prompted for info about my app repo
+ *  ////>   a HQ, prof README.md is generated w/:
+ *    ////> myProject.Title
+ *    ////> sxns 
+ *          ////Descriptions
  *          Table of Contents
- *          Installation
- *          Usage
- *          License
- *          Contributing
- *          Tests
- *          Questions
- *      }
+ *          ////Installation
+ *          ////Usage
+ *          ////License
+ *          ////Contributing
+ *          ////Tests
+ *          ////Questions
  * 
- * @ enter my project title
- *  > this is displayed as the title of the README
+ * ////@ enter my project title
+ *  ////> this is displayed as the title of the README
  * 
- * @ enter sxn info
- *  > INFO added to the appropriate sxns
+ * ////@ enter sxn info
+ *  ////> INFO added to the appropriate sxns
  * 
  * @ choose lic for app fr: a LIST ( opts )
- *  > BADGE for that lic added to TOP of README
+ *  ////> BADGE for that lic added to TOP of README
  *  > NOTICE is added to the sxn("LIC"), explaining which lic the app is under
  * 
  * @ enter my GH username
@@ -70,19 +69,20 @@
  *  then rearranged into a README.md
 */
 // #endregion
-
-
-
 //! start
 
-//#region Requirements // // TODO:(1)
+//#region Requirements/Other Var Declaration // // TODO:(0)
 // // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const markdown = require('./utils/generateMarkdown');
+
+const questions = [];
+const outputFilePath="./newREADME.md"
+const licenseOptions = ["GNU AGPLv3","GNU GPLv3", "GNU LGPLv3", "Mozilla Public License","Apache License 2.0", "MIT License","Boost Software License 1.0","The Unlicense"];
 //#endregion
 
-//#region Questions // // TODO:(1)
+//#region Questions // TODO:(1)
 class Question {
     constructor(nameString, typeString, msgString, choicesArr) {
         this.name = nameString;
@@ -91,12 +91,7 @@ class Question {
         this.choices = choicesArr;
     }
 }
-// // TODO: Create an array of questions for user input
-const questions = [];
-const licenseOptions =
-["GNU AGPLv3","GNU GPLv3", "GNU LGPLv3", "Mozilla Public License",
-"Apache License 2.0", "MIT License","Boost Software License 1.0","The Unlicense"];
-
+// TODO: Create an array of questions for user input
 function createQuestions(){
     questions.push(new Question("title","input","What is the name of your project?"));
     questions.push(new Question("description","input","How does your project works? Your motivation behind it? The problem its intended to solve?"));
@@ -105,15 +100,15 @@ function createQuestions(){
     questions.push(new Question("license","list","What license will your project be under? Refer to <https://choosealicense.com/>. Choose one:", licenseOptions));
     questions.push(new Question("contribution","input","How do I contribute to your repository?"));
     questions.push(new Question("testing","input","How do I test your program?"));
+    questions.push(new Question("username","input","Please provide your Github username: "));
+    questions.push(new Question("email","input","Please provide your email address: "));
     //console.log(`Number of questions pushed: ${questions.length}`)
 } // Wanted to keep 
 
 //#endregion
 
-//#region Output // // TODO:(1)
+//#region Output // // TODO:(0)
 // // TODO: Create a function to write README file
-const outputFilePath="./newREADME.md"
-
 function writeToFile(fileName, data) {
     fs.writeFile(fileName,data,(err) =>
         err
@@ -124,13 +119,11 @@ function writeToFile(fileName, data) {
 //#endregion
 
 
-//#region Main //TODO:(1)
-// TODO: Create a function to initialize app
+//#region Main // // TODO:(0)
+// // TODO: Create a function to initialize app
 function init() {
     createQuestions();
     sendPrompts(questions);
-    //console.log("Responses...recieved");//needs to wait...
-    //console.log("Writing document...");//needs to wait...
 }
 
 function sendPrompts(questionArray){
