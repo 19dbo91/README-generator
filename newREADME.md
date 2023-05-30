@@ -1,26 +1,28 @@
-# Testing License options
+# testing fix
+
+![Mozilla%20Public%20License](https://img.shields.io/badge/license-Mozilla%20Public%20License-green)
 
 ## Description
 
-Added real license options and should print properly
+fixing space in license
 
 ## Installation
 
-I need to figure how to handle when there are no licenses specified
+hopefully works to show correct badge
 
 ## Usage
 
-According to No License, its under no permission bbasically
+test
 
 ## License
 
-The Unlicense
+Mozilla Public License
 
 ## How to Contribute
 
-Note Unlicense is not the same as NO LICENSE.
+test
 
 ## Tests
 
-done.
+test
 

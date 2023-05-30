@@ -131,8 +131,6 @@ function init() {
     sendPrompts(questions);
     //console.log("Responses...recieved");//needs to wait...
     //console.log("Writing document...");//needs to wait...
-    //console.log(`Testing write2file...`);
-    //writeToFile('./test.md','Testing write functionality')
 }
 
 function sendPrompts(questionArray){

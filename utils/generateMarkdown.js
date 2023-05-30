@@ -1,14 +1,17 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(licenseChosen) {
+  licenseChosen = encodeURI(licenseChosen)
+  return `![${licenseChosen}](https://img.shields.io/badge/license-${licenseChosen}-green)\n\n`
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(licenseChosen) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(licenseChosen) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(dataObj) {
@@ -18,7 +21,7 @@ function generateMarkdown(dataObj) {
 
   mainString = mainString
     .concat(renderTitle(title))
-    //TODO: Render badges here if any selected
+    .concat(renderLicenseBadge(license))
     .concat(renderSectionHeader("Description"))
     .concat(renderSection(description))
     //TODO: Render ToC
@@ -36,8 +39,8 @@ function generateMarkdown(dataObj) {
   
   return mainString;
 }
-// Found pasting an entire .md doc as a string with templ literals nappealing...
-// so I decided chaining was a more legible format with minimal performance impact
+// Found pasting an entire .md doc as a string with templ literals unappealing...
+// so I decided chaining was a more legible format with negligible impact to performance
 // Also, not expecting to have a whole novel to be entered into cmd-line..
 
 //need a handler for empty strings
