@@ -1,28 +1,30 @@
-# testing fix
+# The Next Big Thing
 
-![Mozilla%20Public%20License](https://img.shields.io/badge/license-Mozilla%20Public%20License-green)
+![MIT%20License](https://img.shields.io/badge/license-MIT%20License-green)
 
 ## Description
 
-fixing space in license
+It works with magic
 
 ## Installation
 
-hopefully works to show correct badge
+No installation required
 
 ## Usage
 
-test
+Open your preferred browser and enter <URL> into the search bar
 
 ## License
 
-Mozilla Public License
+MIT License
 
 ## How to Contribute
 
-test
+
 
 ## Tests
 
-test
+No test available currently.
+
+## Questions
 
