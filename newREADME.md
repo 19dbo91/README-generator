@@ -1,10 +1,18 @@
 # The Next Big Thing
 
-![MIT%20License](https://img.shields.io/badge/license-MIT%20License-green)
+![MIT License](https://img.shields.io/badge/license-MIT%20License-green)
 
 ## Description
 
 It works with magic
+
+## Table of Contents
+
+- [Description](#description)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
 ## Installation
 
@@ -16,15 +24,5 @@ Open your preferred browser and enter <URL> into the search bar
 
 ## License
 
-MIT License
-
-## How to Contribute
-
-
-
-## Tests
-
-No test available currently.
-
-## Questions
+[MIT License](https://choosealicense.com/licenses/mit/)
 

@@ -79,7 +79,7 @@ const markdown = require('./utils/generateMarkdown');
 
 const questions = [];
 const outputFilePath="./newREADME.md"
-const licenseOptions = ["GNU AGPLv3","GNU GPLv3", "GNU LGPLv3", "Mozilla Public License","Apache License 2.0", "MIT License","Boost Software License 1.0","The Unlicense"];
+const licenseOptions = ["GNU AGPLv3","GNU GPLv3", "GNU LGPLv3", "Mozilla Public License","Apache License 2.0", "MIT License","Boost Software License 1.0","The Unlicense", "No License"];
 //#endregion
 
 //#region Questions // TODO:(1)
@@ -99,10 +99,11 @@ function createQuestions(){
     questions.push(new Question("installation","input","How do I install your program?","No installation required"));
     questions.push(new Question("usage","input","How do I use your program?", "Open your preferred browser and enter <URL> into the search bar"));
     questions.push(new Question("license","list","What license will your project be under? Refer to <https://choosealicense.com/>. Choose one:",licenseOptions[5], licenseOptions));
-    questions.push(new Question("contribution","input","How do I contribute to your repository?"));
-    questions.push(new Question("testing","input","How do I test your program?", "No test available currently."));
-    questions.push(new Question("username","input","Please provide your Github username: "));
-    questions.push(new Question("email","input","Please provide your email address: "));
+    questions.push(new Question("contribution","input","(Optional) How do I contribute to your repository?"));
+    questions.push(new Question("testing","input","(Optional) How do I test your program?"));
+    questions.push(new Question("contact","input","(Optional) How should others reach out to you?"));
+    questions.push(new Question("username","input","(Optional) Please provide your Github username: "));
+    questions.push(new Question("email","input","(Optional) Please provide your email address: "));
     //console.log(`Number of questions pushed: ${questions.length}`)
 } // Wanted to keep default this to website entries
 
