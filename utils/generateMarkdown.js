@@ -8,12 +8,11 @@ function renderSection(header,content){
   if(!content){return "";}
   return `${renderSectionHeader(header)}${content}\n\n`;
 }
-
 function renderLink(alt,link){
   return `[${alt}](${link})`;
 }
 
-function renderToC(){
+function renderToC(contribution, testing, contact, username, email){
   let table = renderSectionHeader("Table of Contents");
   table = table
     .concat(`- ${renderLink("Description","#description")}\n`)
@@ -22,62 +21,82 @@ function renderToC(){
     .concat(`- ${renderLink("Usage","#usage")}\n`)
     .concat(`- ${renderLink("License","#license")}\n`)
   ;
-  //TODO checknull sxns
+
+  if(contribution){table = table.concat(`- ${renderLink("How to Contribute","#how-to-contribute")}\n`)}
+  if(testing){table = table.concat(`- ${renderLink("Tests","#tests")}\n`)}
+  if(contact||username||email){table = table.concat(`- ${renderLink("Questions","#questions")}\n`)}
   return `${table}\n`;
 }
-// At a minimum Description, Installation, Usage, License are enforced
-// See https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
-// Omits nulled sections
+/* At a minimum Description, Installation, Usage, License are enforced
+ Referred to https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+ Omits nulled sections
+ */
 
 // // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(licenseChosen) {
-  if (!licenseChosen){return "";}
+  if (!licenseChosen){return "";}//should NOT ever happen questions have this as pre-defined list...
   
   encodedlicense = encodeURI(licenseChosen);
   return `!${renderLink(licenseChosen,`https://img.shields.io/badge/license-${encodedlicense}-green`)}\n\n`;
-}// Keeping conditional for error case; generally should work with list options...
+}
 
 // // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(licenseChosen) {
-  if (!licenseChosen){return "";}
+  if (!licenseChosen){return "";}//should NOT ever happen questions have this as pre-defined list...
   
-  let URL = "https://choosealicense.com/licenses/"
+  let URL = "https://choosealicense.com/"
   switch (licenseChosen){
-    case "GNU AGPLv3": URL += "agpl-3.0/"; break;
-    case "GNU GPLv3": URL += "gpl-3.0/"; break;
-    case "GNU LPLv3": URL += "lpl-3.0/"; break;
-    case "Mozilla Public License": URL += "mpl-2.0/"; break;
-    case "Apache License 2.0": URL += "mpl-2.0/"; break;
-    case "MIT License": URL += "mit/"; break;
-    case "Boost Software License 1.0": URL += "bsl-1.0/"; break;
-    case "The Unlicense": URL += "unlicense/"; break;
-    default: URL += "no-permission/"; break;
+    case "GNU AGPLv3":
+      URL += "licenses/agpl-3.0/"; break;
+    case "GNU GPLv3":
+      URL += "licenses/gpl-3.0/"; break;
+    case "GNU LPLv3":
+      URL += "licenses/lpl-3.0/"; break;
+    case "Mozilla Public License":
+      URL += "licenses/mpl-2.0/"; break;
+    case "Apache License 2.0":
+      URL += "licenses/mpl-2.0/"; break;
+    case "MIT License":
+      URL += "licenses/mit/"; break;
+    case "Boost Software License 1.0":
+      URL += "licenses/bsl-1.0/"; break;
+    case "The Unlicense":
+      URL += "licenses/unlicense/"; break;
+    default: URL += "no-permission/"; break;  
     
   }//TODO: Could be handled a ton better maybe
-  return `[${licenseChosen}](${URL})\n\n`;
+  return `${renderLink(licenseChosen,URL)}\n\n`;
 }
 
-// TODO: Create a function that returns the license section of README
+// // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(licenseChosen) {
+  if (!licenseChosen){return "";}//should NOT ever happen questions have this as pre-defined list...
   return `${renderSectionHeader("License")}${renderLicenseLink(licenseChosen)}`
 }
 
-
-function renderQuestionSection(contactInfo, username, email){
-  if (!(contactInfo && username && email)){return "";}
+//TODO(2):
+//add check valid username -> next iter(implementAPI:GitHub)
+//add check valid -> next iter(parseEmailString)
+function renderQuestionSection(contactInfo, username, email){  
+  let sectionString = `${renderSectionHeader("Questions")}${contactInfo}`; 
   
-  let sectionString = `${renderSectionHeader("Questions")}${contactInfo}\n`;
-  //check username link
-  // add mail to
-  // TODO: add email check/parse
-  return sectionString;
-}
+  if(username){
+    sectionString = sectionString.concat("\n- Github: ")
+    sectionString = sectionString.concat(renderLink(username,`https://github.com/${username}`))
+    }
+  if(email){
+    sectionString = sectionString.concat("\n- Email: ")
+    sectionString = sectionString.concat(renderLink(email,`mailto:${email}`))
+  }
+  
+  return `${sectionString}\n`;
+} 
 
 
-// TODO: Create a function to generate markdown for README
+// // TODO: Create a function to generate markdown for README
 function generateMarkdown(dataObj) {
   const { title, description, installation, usage, license, contribution, testing, contact, username, email } = dataObj;
   
@@ -87,7 +106,7 @@ function generateMarkdown(dataObj) {
     .concat(renderTitle(title))
     .concat(renderLicenseBadge(license))
     .concat(renderSection("Description",description))
-    .concat(renderToC())
+    .concat(renderToC(contribution, testing, contact, username, email))
     .concat(renderSection("Installation",installation))
     .concat(renderSection("Usage",usage))
     .concat(renderLicenseSection(license))

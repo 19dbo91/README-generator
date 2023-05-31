@@ -95,13 +95,13 @@ class Question {
 // TODO: Create an array of questions for user input
 function createQuestions(){
     questions.push(new Question("title","input","What is the name of your project?","The Next Big Thing"));
-    questions.push(new Question("description","input","How does your project works? Your motivation behind it? The problem its intended to solve?","It works with magic"));
+    questions.push(new Question("description","input","How does your project works? Your motivation behind it? The problem its intended to solve?","The objective of this project is to...."));
     questions.push(new Question("installation","input","How do I install your program?","No installation required"));
-    questions.push(new Question("usage","input","How do I use your program?", "Open your preferred browser and enter <URL> into the search bar"));
+    questions.push(new Question("usage","input","How do I use your program?", "Open your preferred browser\n In the search bar, enter: [Display Text](#)"));
     questions.push(new Question("license","list","What license will your project be under? Refer to <https://choosealicense.com/>. Choose one:",licenseOptions[5], licenseOptions));
     questions.push(new Question("contribution","input","(Optional) How do I contribute to your repository?"));
     questions.push(new Question("testing","input","(Optional) How do I test your program?"));
-    questions.push(new Question("contact","input","(Optional) How should others reach out to you?"));
+    questions.push(new Question("contact","input","(Optional) How should others reach out to you for questions?"));
     questions.push(new Question("username","input","(Optional) Please provide your Github username: "));
     questions.push(new Question("email","input","(Optional) Please provide your email address: "));
     //console.log(`Number of questions pushed: ${questions.length}`)
